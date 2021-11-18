@@ -1,0 +1,22 @@
+body {
+    background: rgb(225, 235, 183);
+    font: 18px Arial, sans-serif;
+}
+h1 {
+    color: rgb(143, 13, 155);
+}
+p {
+    color:rgb(20, 17, 184);
+}
+.black-border {
+    border: 5px solid black;
+}
+#green-background {
+    background-color: green;
+}
+.center {
+    margin: auto;
+    width: 25%;
+    border: 3px solid green;
+    padding: 10px;
+  }
