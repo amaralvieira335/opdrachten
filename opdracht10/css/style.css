@@ -1,0 +1,219 @@
+body{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 15px;
+    line-height: 1.5em;
+    padding: 5px;
+    margin: 5px;
+}
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+.button_1 {
+    height: 38px;
+    background: lightseagreen;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+header {
+    background: rgb(38, 173, 190);
+    color: ivory;
+    padding: 30;
+    min-height: 70px;
+    line-height: 3em;
+
+}
+header a{
+    color: ivory;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+header ul{
+    margin: 0;
+    padding: 0;
+
+}
+header li{
+    float: left;
+    display: inline;
+    padding: 0 20px 0 20px;
+}
+header #branding{
+    float: left;
+}
+header #branding h1{
+    margin: 0;
+    margin-top: 10px;
+}
+header nav{
+    float:right;
+    margin-top: 10px;
+}
+header a:hover{
+    color: maroon;
+    font-size: 20px;
+    font-weight: 800;
+}
+#showcase {
+    min-height: 400px;
+    background: url('../img/sv2.jpg') no-repeat 0;
+    background-size:cover;
+    
+}
+#showcase h1{
+    margin-top: 100px;
+    font-size: 40px;
+    margin-bottom: 10px;
+    line-height: 1em;
+    color: rgb(224, 7, 18);
+}
+#showcase p{
+    font-size: 20px;
+}
+#aanbiedeingen {
+    padding: 15px;
+    color: mintcream;
+    background-color: orange;
+}
+#aanbiedeingen h1{
+    float: left;
+}
+#aanbiedeingen form {
+    float: right;
+    margin: 15px;
+}
+#aanbiedeingen p{
+    float: right;
+    margin: 15px;
+}
+#aanbiedeingen input[type="email"]{
+    padding: 4px;
+    height: 25px;
+    width: 250 px;
+}
+#garantie {
+    padding: 15px;
+    color: mintcream;
+    background-color: red;
+}
+#garantie h1{
+    float: left;
+}
+#garantie form {
+    float: right;
+    margin: 15px;
+}
+#garantie input[type="email"]{
+    padding: 4px;
+    height: 25px;
+    width: 250 px;
+}
+#info {
+    
+    color: mintcream;
+    background-color: rgb(255, 0, 255);
+}
+#info p{
+    float: left;
+    margin: 0;
+    font-size: 25px;
+    
+
+}
+#boxes {
+    margin-top: 20px;
+    background-color: darkmagenta;
+
+}
+#boxes .box{
+    
+    float: left;
+    text-align: center;
+    width: 30%;
+    padding: 10px;
+    
+    
+    
+
+}
+#boxes .box img {
+    width: 400px;
+    height: 200px;
+    
+}
+
+#main {
+    
+    background-color: mediumblue;
+    background-size: cover;
+    color:gold;
+}
+#main a:link, a:visited {
+    background-color: #f44336;
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+  }
+  input[type="file"] {
+    display: none;
+}
+.custom-file-upload {
+    
+    display: inline-block;
+    padding: 14px 25px;
+    cursor: pointer;
+    background: red;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+input[type=button], input[type=submit], input[type=reset] {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+  .filmpje {
+      background: black;
+  }
+
+
+
+
+footer {
+    padding: 20px;
+    margin-top: 20px;
+    background-color: cyan;
+    text-align: center;
+    font-size: 20px;
+}
+@media(max-width:720px){
+    header #branding,
+    header nav,
+    header nav li,
+    #aanbiedingen h1,
+    #aanbiedingen form,
+    #boxes .box{
+        float: none;
+        text-align: center;
+        width: 100%;
+        
+    } 
+    #aanbiedingen button_1{
+        display: block;
+        width: 100%;
+    }
+   
+    header{
+        padding-bottom: 20px;
+    }
+    #showcase h1{
+        margin-top: 40px;
+    }
+
+    
+}
