@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blend Calculator</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .ingredient { margin-bottom: 10px; }
+        label { display: inline-block; width: 100px; }
+        input { width: 80px; margin-right: 10px; }
+        #results { margin-top: 20px; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>Blend Calculator for Four Ingredients</h1>
+    <p>Enter Brix, Acid %, and Weight (kg) for each ingredient, then click Calculate to get the blended mixture properties.</p>
+    
+    <div id="ingredients">
+        <div class="ingredient">
+            <strong>Ingredient 1:</strong><br>
+            <label>Brix:</label> <input type="number" id="brix1" step="0.01" min="0"><br>
+            <label>Acid %:</label> <input type="number" id="acid1" step="0.01" min="0"><br>
+            <label>Weight (kg):</label> <input type="number" id="weight1" step="0.01" min="0">
+        </div>
+        <div class="ingredient">
+            <strong>Ingredient 2:</strong><br>
+            <label>Brix:</label> <input type="number" id="brix2" step="0.01" min="0"><br>
+            <label>Acid %:</label> <input type="number" id="acid2" step="0.01" min="0"><br>
+            <label>Weight (kg):</label> <input type="number" id="weight2" step="0.01" min="0">
+        </div>
+        <div class="ingredient">
+            <strong>Ingredient 3:</strong><br>
+            <label>Brix:</label> <input type="number" id="brix3" step="0.01" min="0"><br>
+            <label>Acid %:</label> <input type="number" id="acid3" step="0.01" min="0"><br>
+            <label>Weight (kg):</label> <input type="number" id="weight3" step="0.01" min="0">
+        </div>
+        <div class="ingredient">
+            <strong>Ingredient 4:</strong><br>
+            <label>Brix:</label> <input type="number" id="brix4" step="0.01" min="0"><br>
+            <label>Acid %:</label> <input type="number" id="acid4" step="0.01" min="0"><br>
+            <label>Weight (kg):</label> <input type="number" id="weight4" step="0.01" min="0">
+        </div>
+    </div>
+    
+    <button onclick="calculateBlend()">Calculate</button>
+    
+    <div id="results">
+        <p>Total Weight: <span id="totalWeight"></span> kg</p>
+        <p>Blended Brix: <span id="blendedBrix"></span></p>
+        <p>Blended Acid %: <span id="blendedAcid"></span></p>
+        <p>Ratio product:</p>
+        <p>Ingredient Ratios:</p>
+        <ul>
+            <li>Ingredient 1: <span id="ratio1"></span>%</li>
+            <li>Ingredient 2: <span id="ratio2"></span>%</li>
+            <li>Ingredient 3: <span id="ratio3"></span>%</li>
+            <li>Ingredient 4: <span id="ratio4"></span>%</li>
+        </ul>
+
+    </div>
+    
+    <script>
+        function calculateBlend() {
+            // Get input values
+            const brix = [
+                parseFloat(document.getElementById('brix1').value) || 0,
+                parseFloat(document.getElementById('brix2').value) || 0,
+                parseFloat(document.getElementById('brix3').value) || 0,
+                parseFloat(document.getElementById('brix4').value) || 0
+            ];
+            const acid = [
+                parseFloat(document.getElementById('acid1').value) || 0,
+                parseFloat(document.getElementById('acid2').value) || 0,
+                parseFloat(document.getElementById('acid3').value) || 0,
+                parseFloat(document.getElementById('acid4').value) || 0
+            ];
+            const weight = [
+                parseFloat(document.getElementById('weight1').value) || 0,
+                parseFloat(document.getElementById('weight2').value) || 0,
+                parseFloat(document.getElementById('weight3').value) || 0,
+                parseFloat(document.getElementById('weight4').value) || 0
+            ];
+            
+            // Calculate total weight
+            const totalWeight = weight.reduce((sum, w) => sum + w, 0);
+            
+            if (totalWeight === 0) {
+                alert('Total weight cannot be zero. Please enter weights.');
+                return;
+            }
+            
+            // Calculate total sugar and total acid
+            let totalSugar = 0;
+            let totalAcid = 0;
+            for (let i = 0; i < 4; i++) {
+                totalSugar += weight[i] * (brix[i] / 100);
+                totalAcid += weight[i] * (acid[i] / 100);
+            }
+            
+            // Blended values
+            const blendedBrix = (totalSugar / totalWeight) * 100;
+            const blendedAcid = (totalAcid / totalWeight) * 100;
+            
+            // Ratios
+            const ratios = weight.map(w => ((w / totalWeight) * 100).toFixed(2));
+            
+            // Display results
+            document.getElementById('totalWeight').textContent = totalWeight.toFixed(2);
+            document.getElementById('blendedBrix').textContent = blendedBrix.toFixed(2);
+            document.getElementById('blendedAcid').textContent = blendedAcid.toFixed(2);
+            document.getElementById('ratio1').textContent = ratios[0];
+            document.getElementById('ratio2').textContent = ratios[1];
+            document.getElementById('ratio3').textContent = ratios[2];
+            document.getElementById('ratio4').textContent = ratios[3];
+        }
+    </script>
+</body>
+</html>
